@@ -5,9 +5,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
 
-  // router: {
-  //   middleware: ['auth']
-  // },
+  router: {
+    middleware: ['auth']
+  },
 
   css: [
     'bootstrap/dist/css/bootstrap.min.css',

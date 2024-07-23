@@ -15,17 +15,17 @@ const { $auth, $db} = useNuxtApp();
 const router = useRouter();
 const route = useRoute();
 
-watch(() => route.fullPath, () => {
-  checkAuth();
-});
+// watch(() => route.fullPath, () => {
+//   checkAuth();
+// });
 
-const checkAuth = () => {
-  if (route.path.startsWith('/admin') && !$auth.currentUser) {
-    router.push('/admin/login');
-  }
-};
+// const checkAuth = () => {
+//   if (route.path.startsWith('/') && !$auth.currentUser) {
+//     router.push('/admin/login');
+//   }
+// };
 
-onMounted(() => {
-  checkAuth();
-});
+// onMounted(() => {
+//   checkAuth();
+// });
 </script>

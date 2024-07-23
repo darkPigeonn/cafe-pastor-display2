@@ -19,10 +19,7 @@
                     </form>
                 </div>
                 <div class="d-flex gap-5">
-                    <button type="submit" class="btn btn-primary">Login</button>
-                    <button type="button" @click="loginWithGoogle" class="login-with-google-btn" >
-                        Sign in with Google
-                    </button>
+                    <button type="submit" @click="login" class="btn btn-primary">Login</button>                    
                 </div>
             </div>
         </div>
@@ -39,25 +36,20 @@ const { $auth } = useNuxtApp();
 
 const email = ref('');
 const password = ref('');
-
+definePageMeta({
+  layout: false
+});
 const login = async () => {
     try {
         await signInWithEmailAndPassword($auth, email.value, password.value);
         // Redirect to admin dashboard
-        navigateTo('/admin/dashboard');
+        navigateTo('/');
     } catch (error) {
+        alert(error)
         console.error('Error logging in:', error);
     }
 };
-const loginWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup($auth, provider);
-    console.log('User Info:', result.user);
-  } catch (error) {
-    console.error('Error during login:', error);
-  }
-};
+
 </script>
 
 <style scoped>
